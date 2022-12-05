@@ -8,7 +8,7 @@ const read = async () => {
         const fileToRead = path.join(basePath, 'files', 'fileToRead.txt');
         const readStream = createReadStream(fileToRead, 'utf-8');
         readStream.on('data', (data)=>{
-            process.stdout._write(data)
+            process.stdout.write(data)
         })
       } catch (err) {
         throw err;
