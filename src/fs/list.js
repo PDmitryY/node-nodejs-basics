@@ -1,10 +1,11 @@
 import { readdir } from 'fs/promises';
 import path from 'path';
-import {fileURLToPath} from 'url'
+import {fileURLToPath} from 'url';
+
+const basePath = path.dirname(fileURLToPath(import.meta.url));
+const destinationFolder = path.join(basePath, 'files');
 
 const list = async () => {
-    const basePath = path.dirname(fileURLToPath(import.meta.url));
-    const destinationFolder = path.join(basePath, 'files');
     try {
         const files = await readdir(destinationFolder, {withFileTypes: true})
         for (const file of files) {

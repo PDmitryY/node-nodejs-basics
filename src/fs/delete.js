@@ -1,10 +1,11 @@
 import { rm } from 'fs/promises';
 import path from 'path';
-import {fileURLToPath} from 'url'
+import {fileURLToPath} from 'url';
+
+const basePath = path.dirname(fileURLToPath(import.meta.url));
+const fileToDelete = path.join(basePath, 'files', 'fileToRemove.txt');
 
 const remove = async () => {
-    const basePath = path.dirname(fileURLToPath(import.meta.url));
-    const fileToDelete = path.join(basePath, 'files', 'fileToRemove.txt');
     try {
         await rm(fileToDelete)
     } catch (err) {
